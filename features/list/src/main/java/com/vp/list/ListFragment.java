@@ -2,16 +2,22 @@ package com.vp.list;
 
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
+
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.vp.navigation.Navigator;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,12 +32,16 @@ import javax.inject.Inject;
 
 import dagger.android.support.AndroidSupportInjection;
 
-public class ListFragment extends Fragment implements GridPagingScrollListener.LoadMoreItemsListener, ListAdapter.OnItemClickListener {
+public class ListFragment extends Fragment implements
+        GridPagingScrollListener.LoadMoreItemsListener, ListAdapter.OnItemClickListener {
+
     public static final String TAG = "ListFragment";
     private static final String CURRENT_QUERY = "current_query";
 
     @Inject
     ViewModelProvider.Factory factory;
+    @Inject
+    Navigator navigator;
 
     private ListViewModel listViewModel;
     private GridPagingScrollListener gridPagingScrollListener;
@@ -51,7 +61,8 @@ public class ListFragment extends Fragment implements GridPagingScrollListener.L
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+            @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_list, container, false);
     }
 
@@ -96,7 +107,8 @@ public class ListFragment extends Fragment implements GridPagingScrollListener.L
         recyclerView.setAdapter(listAdapter);
         recyclerView.setHasFixedSize(true);
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(),
-                getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT ? 2 : 3);
+                getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT
+                        ? 2 : 3);
         recyclerView.setLayoutManager(layoutManager);
 
         // Pagination
@@ -117,7 +129,8 @@ public class ListFragment extends Fragment implements GridPagingScrollListener.L
         viewAnimator.setDisplayedChild(viewAnimator.indexOfChild(errorTextView));
     }
 
-    private void handleResult(@NonNull ListAdapter listAdapter, @NonNull SearchResult searchResult) {
+    private void handleResult(@NonNull ListAdapter listAdapter,
+            @NonNull SearchResult searchResult) {
         switch (searchResult.getListState()) {
             case LOADED: {
                 setItemsData(listAdapter, searchResult);
@@ -135,7 +148,8 @@ public class ListFragment extends Fragment implements GridPagingScrollListener.L
         gridPagingScrollListener.markLoading(false);
     }
 
-    private void setItemsData(@NonNull ListAdapter listAdapter, @NonNull SearchResult searchResult) {
+    private void setItemsData(@NonNull ListAdapter listAdapter,
+            @NonNull SearchResult searchResult) {
         listAdapter.setItems(searchResult.getItems());
 
         if (searchResult.getTotalResult() <= listAdapter.getItemCount()) {
@@ -164,6 +178,7 @@ public class ListFragment extends Fragment implements GridPagingScrollListener.L
 
     @Override
     public void onItemClick(String imdbID) {
-        //TODO handle click events
+        Intent intent = navigator.getDetailIntent(imdbID);
+        startActivity(intent);
     }
 }

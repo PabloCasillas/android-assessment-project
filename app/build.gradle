@@ -42,8 +42,8 @@ dependencies {
     implementation project(':features:list')
     implementation project(':features:detail')
     implementation project(':features:favorites')
-    implementation project(':features:navigation')
     implementation project(':dagger.addons')
+    implementation project(':features:navigation')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlin"
 

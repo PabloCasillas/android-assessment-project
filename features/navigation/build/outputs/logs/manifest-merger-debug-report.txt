@@ -1,23 +1,23 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml:1:1-2:40
-INJECTED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml:1:1-2:40
-INJECTED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml:1:1-2:40
-INJECTED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml:1:1-2:40
-INJECTED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml:1:1-2:40
-INJECTED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml:1:1-2:40
-INJECTED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml:1:1-2:40
+ADDED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml:1:1-2:35
+INJECTED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml:1:1-2:35
+INJECTED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml:1:1-2:35
+INJECTED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml:1:1-2:35
+INJECTED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml:1:1-2:35
+INJECTED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml:1:1-2:35
+INJECTED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml:1:1-2:35
 	package
-		ADDED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml:2:5-37
+		ADDED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml:2:5-32
 		INJECTED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml
 		INJECTED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml
-		ADDED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml:1:1-2:40
+		ADDED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml:1:1-2:35
 		INJECTED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml
-		ADDED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml:1:1-2:40
+		ADDED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml:1:1-2:35
 		INJECTED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/ivancarrasco/Desktop/Proyectos/android-assessment-project/features/navigation/src/main/AndroidManifest.xml:1:11-69
