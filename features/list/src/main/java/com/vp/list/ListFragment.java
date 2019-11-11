@@ -30,6 +30,8 @@ import com.vp.list.viewmodel.ListViewModel;
 
 import javax.inject.Inject;
 
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener;
 import dagger.android.support.AndroidSupportInjection;
 
 public class ListFragment extends Fragment implements
@@ -51,6 +53,7 @@ public class ListFragment extends Fragment implements
     private ProgressBar progressBar;
     private TextView errorTextView;
     private String currentQuery = "Interview";
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,7 +76,14 @@ public class ListFragment extends Fragment implements
         viewAnimator = view.findViewById(R.id.viewAnimator);
         progressBar = view.findViewById(R.id.progressBar);
         errorTextView = view.findViewById(R.id.errorText);
+        swipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout);
 
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                listViewModel.searchMoviesByTitle(currentQuery, 1);
+            }
+        });
         if (savedInstanceState != null) {
             currentQuery = savedInstanceState.getString(CURRENT_QUERY);
         }
@@ -123,6 +133,7 @@ public class ListFragment extends Fragment implements
 
     private void showList() {
         viewAnimator.setDisplayedChild(viewAnimator.indexOfChild(recyclerView));
+
     }
 
     private void showError() {
@@ -135,6 +146,7 @@ public class ListFragment extends Fragment implements
             case LOADED: {
                 setItemsData(listAdapter, searchResult);
                 showList();
+                swipeRefreshLayout.setRefreshing(false);
                 break;
             }
             case IN_PROGRESS: {
