@@ -1,2 +1,2 @@
-include ':app', ':features:list', ':features:favorites', ':dagger.addons', 'features:detail'
-include ':features:navigation'
+include ':app', ':features:list', ':features:favorites', ':dagger.addons', 'features:detail',':features:navigation'
+include ':features:favorites-db'

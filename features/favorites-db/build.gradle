@@ -1,56 +1,44 @@
-apply plugin: 'com.android.application'
-
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
-
-def localProperties = new Properties()
-localProperties.load(new FileInputStream(rootProject.file("local.properties")))
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
+
     defaultConfig {
-        applicationId "com.vp.movies"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
-        buildConfigField "String", "API_KEY", localProperties['apiKey']
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        testInstrumentationRunner "com.android.support.test.runner.AndroidJUnitRunner"
+
     }
+
     buildTypes {
         debug {
             minifyEnabled false
         }
         debugProguard {
-            initWith buildTypes.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             minifyEnabled true
         }
     }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+    androidExtensions{
+        experimental = true
     }
 
-    dataBinding {
-        enabled = true
-    }
 }
 
 dependencies {
-    implementation project(':features:list')
-    implementation project(':features:detail')
-    implementation project(':features:favorites')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':dagger.addons')
-    implementation project(':features:navigation')
-    implementation project(':features:favorites-db')
-
+    implementation('androidx.constraintlayout:constraintlayout:1.1.2')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlin"
 
     //support
     implementation "androidx.appcompat:appcompat:$rootProject.supportLibraryVersion"
-    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayout"
+
+    implementation 'android.arch.persistence.room:runtime:1.1.1'
+    annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
 
     //dagger
     implementation "com.google.dagger:dagger:$rootProject.dagger"
@@ -59,12 +47,13 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:$rootProject.dagger"
     kapt "com.google.dagger:dagger-android-processor:$rootProject.dagger"
 
-    //api
-    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttp"
-    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofit"
-
-    //test
+    //tests
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+}
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
 }
