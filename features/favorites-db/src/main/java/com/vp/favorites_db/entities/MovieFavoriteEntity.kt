@@ -5,11 +5,12 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class MovieFavoriteEntity(
+    @PrimaryKey
+    val imdbID: String,
     val title: String,
     val year: String,
     val runtime: String,
     val director: String,
     val plot: String,
-    val poster: String,
-    val favorite: Boolean
+    val poster: String
 )

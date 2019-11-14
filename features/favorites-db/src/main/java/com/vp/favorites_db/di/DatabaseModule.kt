@@ -1,22 +1,22 @@
 package com.vp.favorites_db.di
 
-import android.app.Application
+import android.content.Context
 import androidx.room.Room
 import com.vp.favorites_db.DataBase
 import com.vp.favorites_db.MoviesDao
-import dagger.Binds
 import dagger.Module
+import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-abstract class DatabaseModule {
+class DatabaseModule {
     @Singleton
-    @Binds
-    fun roomDataBase(application: Application): DataBase =
-        Room.databaseBuilder(application, DataBase::class.java, "db").build()
+    @Provides
+    fun roomDataBase(context: Context): DataBase =
+        Room.databaseBuilder(context, DataBase::class.java, "db").build()
 
     @Singleton
-    @Binds
+    @Provides
     fun moviesDao(dataBase: DataBase): MoviesDao =
         dataBase.moviesDao()
 }
