@@ -8,6 +8,7 @@ import com.vp.detail.mapper.MovieEntityMapper
 import com.vp.detail.model.MovieDetail
 import com.vp.detail.service.DetailService
 import com.vp.favorites_db.MoviesDao
+import com.vp.favorites_db.entities.MovieFavoriteEntity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -28,6 +29,7 @@ class DetailsViewModel @Inject constructor(
     private val title: MutableLiveData<String> = MutableLiveData()
     private val loadingState: MutableLiveData<LoadingState> = MutableLiveData()
     private val pendingJobs = Job()
+    private lateinit var a: List<MovieFavoriteEntity>
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.IO + pendingJobs
 
@@ -65,6 +67,7 @@ class DetailsViewModel @Inject constructor(
             val movieEntity = movieEntityMapper.map(it)
             launch {
                 moviesDao.insertMovieFavorite(movieEntity)
+                a = moviesDao.getMoviesFavorites()
             }
         }
     }

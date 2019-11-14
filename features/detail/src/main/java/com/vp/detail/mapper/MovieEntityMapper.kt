@@ -7,6 +7,7 @@ import javax.inject.Inject
 class MovieEntityMapper @Inject constructor() : Mapper<MovieDetail, MovieFavoriteEntity> {
     override fun map(input: MovieDetail): MovieFavoriteEntity =
         MovieFavoriteEntity(
+            imdbID = input.imdbID,
             title = input.title,
             year = input.year,
             runtime = input.runtime,

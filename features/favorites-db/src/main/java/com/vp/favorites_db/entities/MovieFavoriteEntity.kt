@@ -3,8 +3,10 @@ package com.vp.favorites_db.entities
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(primaryKeys = ["title", "year", "director"])
+@Entity
 data class MovieFavoriteEntity(
+    @PrimaryKey
+    val imdbID: String,
     val title: String,
     val year: String,
     val runtime: String,
