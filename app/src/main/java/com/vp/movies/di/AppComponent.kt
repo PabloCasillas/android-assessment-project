@@ -2,6 +2,7 @@ package com.vp.movies.di
 
 import android.app.Application
 import com.vp.detail.di.DetailActivityModule
+import com.vp.favorites.di.FavoritesActivityModule
 import com.vp.favorites_db.di.DatabaseModule
 import com.vp.list.di.MovieListActivityModule
 import com.vp.movies.MoviesApplication
@@ -14,7 +15,7 @@ import javax.inject.Singleton
 @Singleton
 @Component(
     modules = [AppModule::class, AndroidSupportInjectionModule::class, NetworkModule::class,
-        MovieListActivityModule::class, DetailActivityModule::class, NavigationModule::class, DatabaseModule::class]
+        MovieListActivityModule::class, DetailActivityModule::class, NavigationModule::class, DatabaseModule::class, FavoritesActivityModule::class]
 )
 interface AppComponent {
 

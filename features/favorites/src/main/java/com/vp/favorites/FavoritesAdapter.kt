@@ -12,7 +12,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.vp.favorites_db.entities.MovieFavoriteEntity
 
 
-class FavoriteAdapter(private val context: Context) : RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder>() {
+class FavoritesAdapter(private val context: Context) : RecyclerView.Adapter<FavoritesAdapter.FavoriteViewHolder>() {
 
     private var listItems: List<MovieFavoriteEntity> = emptyList()
 
